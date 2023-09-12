@@ -3,9 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>CSS Meme Slider</title>
 </head>
 <body>
-  
+  <div class="slider-container">
+    <div class="slider-wrapper">
+      <input type="radio" name="slider-btn" id="btn1" checked>
+      <input type="radio" name="slider-btn" id="btn2">
+      <input type="radio" name="slider-btn" id="btn3">
+      <input type="radio" name="slider-btn" id="btn4">
+
+      <div class="slider-line">
+        <div class="slider-line-wrapper">
+          <div class="slide1 slide"></div>
+          <div class="slide2 slide"></div>
+          <div class="slide3 slide"></div>
+          <div class="slide4 slide"></div>
+        </div>
+      </div>
+
+      <div class="slider-line-description">
+        <div class="slider-line-description-wrapper">
+          <p class="slide-description1 slide">Если закрыть глаза, становится темно</p>
+          <p class="slide-description2 slide">Шаг влево, шаг вправо - два шага</p>
+          <p class="slide-description3 slide">Одна ошибка и ты ошибся</p>
+          <p class="slide-description4 slide">Когда меня рожали собственно, тогда я и родился</p>
+        </div>
+      </div>
+
+      <div class="slider-buttons-wrapper">
+        <label for="btn1" class="slider-btn1"></label>
+        <label for="btn2" class="slider-btn2"></label>
+        <label for="btn3" class="slider-btn3"></label>
+        <label for="btn4" class="slider-btn4"></label>
+      </div>
+
+    </div>
+  </div>
 </body>
 </html>
