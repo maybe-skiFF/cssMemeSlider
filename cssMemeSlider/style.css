@@ -14,6 +14,10 @@ body {
   font-size: 12px;
 }
 
+.slider-wrapper input {
+  display: none;
+}
+
 .slider-container {
   width: 400px;
   height: 500px;
@@ -22,27 +26,41 @@ body {
 }
 
 .slider-wrapper {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas: 'slide slide'
+                        'description btns';
+  row-gap: 20px;
+}
+
+.slider-line,
+.slider-line-description {
   display: flex;
-  /* flex-direction: column; */
+  
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.slider-wrapper input {
-  display: none;
+.slider-line {
+  grid-area: slide;
 }
 
 .slider-line-wrapper {
   display: flex;
-  width: calc(100% + 400px);
+  width: calc(100% * 400px);
   height: 100%;
   transition: transform 1s ease-in;
 }
 
 .slider-line-description-wrapper {
   display: flex;
-  width: 100% * 400px;
+  width: calc(100% * 400px);
   height: 100%;
   transition: transform 1s ease-in;
 }
@@ -54,7 +72,10 @@ body {
   background-size: cover;
 
   width: 400px;
-  height: 400px;
+}
+
+.slider-line-description {
+  grid-area: description;
 }
 
 .slide1 {
@@ -71,4 +92,42 @@ body {
 
 .slide4 {
   background-image: url('https://cdn.trinixy.ru/pics6/20210726/215638_1_1627314613_trinixy_ru.jpg');
+}
+
+.slider-line-description-wrapper .slide {
+  display: inline-block;
+
+  width: 400px;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.slider-buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+  grid-area: btns;
+}
+
+.slider-buttons-wrapper label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 1s ease-in;
+}
+
+.slider-buttons-wrapper label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translate(50%, 50%);
+  transition: all 0.8s ease;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  border: 1px solid red;
+  background-color: black;
 }
