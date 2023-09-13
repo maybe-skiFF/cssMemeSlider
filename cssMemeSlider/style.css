@@ -72,6 +72,7 @@ body {
   background-size: cover;
 
   width: 400px;
+  border-radius: 10px;
 }
 
 .slider-line-description {
@@ -79,7 +80,7 @@ body {
 }
 
 .slide1 {
-  background-image: url('https://kartinkof.club/uploads/posts/2022-03/1648332889_3-kartinkof-club-p-memi-so-stetkhemom-3.jpg');
+  background-image: url('https://cs13.pikabu.ru/post_img/2023/08/17/8/1692277638162433489.jpg');
 }
 
 .slide2 {
@@ -87,11 +88,11 @@ body {
 }
 
 .slide3 {
-  background-image: url('https://rg.ru/uploads/images/214/34/49/B0760B6F-187C-404B-BD83-4569742A2A39.jpeg');
+  background-image: url('https://medialeaks.ru/wp-content/uploads/2021/07/rybov-563x500.jpg');
 }
 
 .slide4 {
-  background-image: url('https://cdn.trinixy.ru/pics6/20210726/215638_1_1627314613_trinixy_ru.jpg');
+  background-image: url('https://cs14.pikabu.ru/post_img/2023/07/03/6/1688378290179922120.jpg');
 }
 
 .slider-line-description-wrapper .slide {
@@ -135,6 +136,10 @@ body {
 .slider-buttons-wrapper label:hover::before {
   background-color: rgb(35, 36, 5);
   border: 1px solid rgb(35, 36, 5);
+}
+
+.slider-buttons-wrapper label:active::before {
+  opacity: 0.5;
 }
 
 #btn1:checked ~ .slider-line .slider-line-wrapper,
