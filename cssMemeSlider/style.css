@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  background-color: rgb(153, 223, 174);
+
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+.slider-wrapper input {
+  display: none;
+}
+
+.slider-container {
+  width: 400px;
+  height: 500px;
+
+  margin: 50px auto;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas: 'slide slide'
+                        'description btns';
+  row-gap: 30px;
+}
+
+.slider-line,
+.slider-line-description {
+  display: flex;
+  
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider-line {
+  grid-area: slide;
+}
+
+.slider-line-wrapper {
+  display: flex;
+  width: calc(100% * 400px);
+  height: 100%;
+  transition: transform 1s ease-in;
+}
+
+.slider-line-description-wrapper {
+  display: flex;
+  width: calc(100% * 400px);
+  height: 100%;
+  transition: transform 1s ease-in;
+}
+
+.slider-line-wrapper .slide {
+  display: inline-block;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 400px;
+  border-radius: 10px;
+}
+
+.slider-line-description {
+  grid-area: description;
+}
+
+.slide1 {
+  background-image: url('https://cs13.pikabu.ru/post_img/2023/08/17/8/1692277638162433489.jpg');
+}
+
+.slide2 {
+  background-image: url('https://sun9-56.userapi.com/impg/yXH8LfFjQOBx3mJBiMbXXHePWaSejXRtkGRtFg/mg4amHn1uqI.jpg?size=511x509&quality=96&sign=212586ac98d0053ca555bc434d1d064a&c_uniq_tag=cmqG8IRUii474TZiwtSIHXj1oFkJPEklLxM5f7crdME&type=album');
+}
+
+.slide3 {
+  background-image: url('https://medialeaks.ru/wp-content/uploads/2021/07/rybov-563x500.jpg');
+}
+
+.slide4 {
+  background-image: url('https://cs14.pikabu.ru/post_img/2023/07/03/6/1688378290179922120.jpg');
+}
+
+.slider-line-description-wrapper .slide {
+  display: inline-block;
+
+  width: 400px;
+  height: 100%;
+  padding-right: 10px;
+}
+
+.slider-buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+  grid-area: btns;
+}
+
+.slider-buttons-wrapper label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 1s ease-in;
+}
+
+.slider-buttons-wrapper label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transform: translate(50%, 50%);
+  transition: all 0.8s ease;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  border: 1px solid rgb(34, 77, 172);
+  background-color: rgb(153, 223, 174);
+}
+
+.slider-buttons-wrapper label:hover::before {
+  background-color: rgb(35, 36, 5);
+  border: 1px solid rgb(35, 36, 5);
+}
+
+.slider-buttons-wrapper label:active::before {
+  opacity: 0.5;
+}
+
+#btn1:checked ~ .slider-line .slider-line-wrapper,
+#btn1:checked ~ .slider-line-description .slider-line-description-wrapper {
+  transform: translateX(0);
+}
+
+#btn2:checked ~ .slider-line .slider-line-wrapper,
+#btn2:checked ~ .slider-line-description .slider-line-description-wrapper {
+  transform: translateX(-400px);
+}
+
+#btn3:checked ~ .slider-line .slider-line-wrapper,
+#btn3:checked ~ .slider-line-description .slider-line-description-wrapper {
+  transform: translateX(-800px);
+}
+
+#btn4:checked ~ .slider-line .slider-line-wrapper,
+#btn4:checked ~ .slider-line-description .slider-line-description-wrapper {
+  transform: translateX(-1200px);
+}
+
+#btn1:checked ~ .slider-buttons-wrapper .slider-btn1::before {
+  background-color: rgb(34, 77, 172);
+}
+
+#btn2:checked ~ .slider-buttons-wrapper .slider-btn2::before {
+  background-color: rgb(34, 77, 172);
+}
+
+#btn3:checked ~ .slider-buttons-wrapper .slider-btn3::before {
+  background-color: rgb(34, 77, 172);
+}
+
+#btn4:checked ~ .slider-buttons-wrapper .slider-btn4::before {
+  background-color: rgb(34, 77, 172);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+
+  .slider-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 30px 100px;
+    grid-template-areas: 'slide'
+                          'btns'
+                          'description';
+    row-gap: 10px;
+  }
+
+  .slider-buttons-wrapper {
+    justify-content: center;
+  }
+
+  .slider-buttons-wrapper label::before {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+}
